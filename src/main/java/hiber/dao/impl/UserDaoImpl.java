@@ -17,7 +17,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User findByCar(String model, int series) {
-        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("FROM User WHERE car.model = ? AND car.series = ?");
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("FROM User u WHERE u.car.model = ? AND u.car.series = ?");
         query.setParameter(0, model);
         query.setParameter(1, series);
         return query.getSingleResult();
